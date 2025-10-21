@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foldemo - Discord Bot Dashboard</title>
+
+  <!-- Link to your custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Foldemo</h1>
+    <p>Your modern Discord bot dashboard</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Ping Bot</h2>
+      <button id="pingBtn">Ping</button>
+      <p id="pingResponse"></p>
+    </section>
+
+    <section class="card">
+      <h2>Watch Video</h2>
+      <button id="youtubeBtn">Open YouTube</button>
+    </section>
+
+    <section class="card">
+      <h2>Server Stats</h2>
+      <p>Coming soon: real-time stats from your Discord bot.</p>
+    </section>
+
+    <section class="card">
+      <h2>Commands</h2>
+      <p>Add more bot commands and controls here.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Foldemo
+  </footer>
+
+  <script>
+    const pingBtn = document.getElementById('pingBtn');
+    const pingResponse = document.getElementById('pingResponse');
+    const youtubeBtn = document.getElementById('youtubeBtn');
+
+    pingBtn.addEventListener('click', () => {
+      pingResponse.innerText = "Pong! ✅";
+    });
+
+    youtubeBtn.addEventListener('click', () => {
+      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+    });
+  </script>
+</body>
+</html>
 
