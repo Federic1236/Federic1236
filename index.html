@@ -5,12 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foldemo - Discord Bot Dashboard</title>
 
-  <!-- Link to your custom CSS -->
-  <link rel="stylesheet" href="style.css">
-
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    /* Global styles */
+    body {
+      background-color: #0f172a;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #60a5fa;
+    }
+
+    header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    /* Main layout */
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    /* Cards */
+    .card {
+      background-color: #1e293b;
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #93c5fd;
+    }
+
+    .card p {
+      color: #cbd5e1;
+    }
+
+    /* Buttons */
+    button {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    /* Ping response animation */
+    #pingResponse {
+      margin-top: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #pingResponse.active {
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      main {
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <h1>Foldemo</h1>
@@ -51,6 +167,8 @@
 
     pingBtn.addEventListener('click', () => {
       pingResponse.innerText = "Pong! ✅";
+      pingResponse.classList.add('active');
+      setTimeout(() => pingResponse.classList.remove('active'), 1500);
     });
 
     youtubeBtn.addEventListener('click', () => {
@@ -59,4 +177,3 @@
   </script>
 </body>
 </html>
-
